@@ -4,7 +4,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/hero.png' }]
   ],
-  base: process.env.NODE_ENV === 'development' ? '/' :'/example/vuepress/',
+  base: process.env.NODE_ENV === 'development' ? '/' :'/docs/',
   themeConfig: {
     displayAllHeaders: false,
     sidebar: 'auto',
