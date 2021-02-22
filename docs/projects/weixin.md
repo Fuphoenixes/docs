@@ -241,7 +241,7 @@ npm run build:test
 
    ```less
    width: 750px;
-   // 编译时检测到px即会自动替换为计算好的rem值
+   // 编译时检测到px即会自动替换为计算好的rem值，如果就想要设置px可以设置为大写PX
    ```
 
 ::: warning 注意
