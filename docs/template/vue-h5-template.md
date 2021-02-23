@@ -148,6 +148,26 @@ VUE_APP_SECRET=secret
 
 具体代码可借鉴 `vue.config.js`
 
+### 真机调试
+
+由于是移动端项目，在真机上即便是抓包依旧存在调试不便的情况
+
+故在项目的404页面里添加了后门，用于引入[vConsole](https://github.com/Tencent/vConsole) 做为真机调试工具
+
+具体操作流程： 
+
+
+ 1. 在微信里输入本项目任意不存在的路由（前端路由即#号后为任意不存在路由），进入本项目的404页面
+
+    <img src="https://gitee.com/Fuphoenixes/images/raw/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210223161637.jpg" alt="微信图片_20210223161637" style="zoom:25%;" /> <img src="https://gitee.com/Fuphoenixes/images/raw/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210223161645.jpg" alt="微信图片_20210223161645" style="zoom:25%;" />
+
+ 2. 在 “404 Not Found”这段文字上，左右滑动超过2秒，即会打开后门，弹出设置调试器弹框，输入密码543210 点击确定，即可打开调试器
+
+       <img src="https://gitee.com/Fuphoenixes/images/raw/master/images/微信图片_20210223155509.jpg" style="zoom:25%;" /> <img src="https://gitee.com/Fuphoenixes/images/raw/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210223155515.jpg" alt="微信图片_20210223155515" style="zoom:25%;" />
+
+
+​	
+
 ## 移动端适配
 
 ### 适配方案 
@@ -159,6 +179,14 @@ VUE_APP_SECRET=secret
 ​	通过查询机型，做到3端显示一致
 ​	设置rem基数为7.5分之一屏宽，以配合750单位的UI图
 ​	监听屏宽变化重新设置rem基数做到横竖屏显示正常
+
+::: tip 提示
+
+​	本项目引入了 `postcss-plugin-px2rem ` 并配置在 [`postcss.config.js`](https://github.com/Fuphoenixes/vue-h5-template/blob/master/postcss.config.js) 中,可实现px自动转rem,
+
+具体原理[参考](../projects/weixin.md#移动端适配)
+
+:::
 
 ## 路由缓存和路由动画
 
@@ -212,7 +240,7 @@ VUE_APP_SECRET=secret
 
    缺点：
 
-   ​	字体图标文件存在本地时，由于字体图标文件压缩编译过，基本无法仅通过该文件来继续新增图标，需要在对应图标网站 [iconfont.cn](http://iconfont.cn/) 上维护图标的新增和删除。这样容易在项目人员变动时，出现遗失图标网站 [iconfont.cn](http://iconfont.cn/) 上仓库的管理权限。可能就是以前的开发人员走了没给你对接这个权限，造成项目字体图标无法再新增修改的严重后果。
+   ​		字体图标文件存在本地时，由于字体图标文件压缩编译过，基本无法仅通过该文件来继续新增图标，需要在对应图标网站 [iconfont.cn](http://iconfont.cn/) 上维护图标的新增和删除。这样容易在项目人员变动时，出现遗失图标网站 [iconfont.cn](http://iconfont.cn/) 上仓库的管理权限。可能就是以前的开发人员走了没给你对接这个权限，造成项目字体图标无法再新增修改的严重后果。
 
 3. svg图标
 
@@ -298,7 +326,7 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 
 ### server mock
 
-本项目使用 [webpack-api-mocker](https://www.npmjs.com/package/webpack-api-mocker)  进行mock数据处理
+本项目使用 [webpack-api-mocker](https://www.npmjs.com/package/webpack-api-mocker)  进行mock数据处理, 直接在 `mock` 文件夹下使用
 
 示列：
 
@@ -352,4 +380,25 @@ module.exports = {
 }
 ```
 
-### 
+## 和服务端进行交互
+
+​	[参考 vue-pc-template](./vue-pc-template.md#和服务端进行交互)
+
+## 跨域问题
+
+​    [参考 vue-pc-template](./vue-pc-template.md#跨域问题)
+
+## 辅助文档
+
+​	[vue文档](https://cn.vuejs.org/)
+
+​	[vuex文档](https://vuex.vuejs.org/zh/)
+
+​	[vue-router文档](https://router.vuejs.org/zh/)
+
+​	[vue-cli文档](https://cli.vuejs.org/zh/)
+
+​	[axios文档](https://www.kancloud.cn/yunye/axios/234845)
+
+​	[vant文档](https://vant-contrib.gitee.io/vant/#/zh-CN/)
+
